@@ -10,7 +10,9 @@ const App = () => {
 
   useEffect(() => {
     dispatch(fetchBooks());
+    dispatch(sortBooks('title', 'asc'));
   }, [dispatch]);
+  
 
   function handleSortChange(e) {
     let value = e.target.value;
@@ -28,16 +30,24 @@ const App = () => {
 
   return (
     <div>
-      <h1>Book Sorting App</h1>
+      <h1>Books List</h1>
+
       <div>
-        <select onChange={handleSortChange}>
-          <option value="title asc">Title - Ascending</option>
-          <option value="title desc">Title - Descending</option>
-          <option value="author asc">Author - Ascending</option>
-          <option value="author desc">Author - Descending</option>
-          <option value="publisher asc">Publisher - Ascending</option>
-          <option value="publisher desc">Publisher - Descending</option>
-        </select>
+      <label htmlFor="sort">Sort By:</label>
+      <select id="sort" onChange={handleSortChange}>
+        <option value="title asc">Title - Ascending</option>
+        <option value="title desc">Title - Descending</option>
+        <option value="author asc">Author - Ascending</option>
+        <option value="author desc">Author - Descending</option>
+        <option value="publisher asc">Publisher - Ascending</option>
+        <option value="publisher desc">Publisher - Descending</option>
+      </select>
+
+      <label htmlFor="order">Order:</label>
+      <select id="order" onChange={handleSortChange}>
+        <option value="asc">Ascending</option>
+        <option value="desc">Descending</option>
+      </select>
       </div>
 
       {loading ? (
