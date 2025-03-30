@@ -33,21 +33,19 @@ const App = () => {
       <h1>Books List</h1>
 
       <div>
-      <label htmlFor="sort">Sort By:</label>
+      <label htmlFor="sort">Sort by:</label>
       <select id="sort" onChange={handleSortChange}>
-        <option value="title asc">Title - Ascending</option>
-        <option value="title desc">Title - Descending</option>
-        <option value="author asc">Author - Ascending</option>
-        <option value="author desc">Author - Descending</option>
-        <option value="publisher asc">Publisher - Ascending</option>
-        <option value="publisher desc">Publisher - Descending</option>
+        <option value="title">Title</option>
+        <option value="author">Author</option>
+        <option value="publisher">Publisher</option>
       </select>
 
       <label htmlFor="order">Order:</label>
-      <select id="order" onChange={handleSortChange}>
+      <select id="order" onChange={handleOrderChange}>
         <option value="asc">Ascending</option>
         <option value="desc">Descending</option>
       </select>
+
       </div>
 
       {loading ? (
