@@ -13,20 +13,16 @@ const App = () => {
     dispatch(sortBooks('title', 'asc'));
   }, [dispatch]);
   
-
-  function handleSortChange(e) {
-    let value = e.target.value;
-    if (!value) return;
-
-    let parts = value.split(' ');
-    if (parts.length !== 2) {
-      console.error("Invalid sorting value:", value);
-      return;
-    }
-
-    let [criteria, order] = parts;
-    dispatch(sortBooks(criteria, order));
-  }
+  let handleSortChange = (e) => {
+    let criteria = e.target.value;
+    dispatch(sortBooks(criteria, 'asc'));
+  };
+  
+  let handleOrderChange = (e) => {
+    let order = e.target.value;
+    dispatch(sortBooks('title', order));
+  };
+  
 
   return (
     <div>
@@ -45,6 +41,7 @@ const App = () => {
         <option value="asc">Ascending</option>
         <option value="desc">Descending</option>
       </select>
+
 
       </div>
 
